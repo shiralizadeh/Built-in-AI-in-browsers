@@ -27,7 +27,7 @@ const prompt = _.debounce(async function prompt(e) {
     console.log({ response });
 
     // Parse Response
-    // const { tags } = ...
+    const { tags } = JSON.parse(response);
 
     tagsElement.innerHTML = "";
 
