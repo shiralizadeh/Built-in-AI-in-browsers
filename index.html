@@ -3,161 +3,102 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Unlock the future: Built-in AI in browsers</title>
+    <title>Built-in AI in browsers</title>
     <link rel="stylesheet" href="https://codepen.io/gymratpacks/pen/VKzBEp#0" />
     <link
       href="https://fonts.googleapis.com/css?family=Nunito:400,300"
       rel="stylesheet"
       type="text/css"
     />
-    <style>
-      *,
-      *:before,
-      *:after {
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Nunito", sans-serif;
-        color: #384047;
-      }
-
-      form {
-        max-width: 300px;
-        margin: 10px auto;
-        padding: 10px 20px;
-        background: #f4f7f8;
-        border-radius: 8px;
-      }
-
-      h1 {
-        margin: 0 0 30px 0;
-        text-align: center;
-      }
-
-      input[type="text"],
-      input[type="password"],
-      input[type="date"],
-      input[type="datetime"],
-      input[type="email"],
-      input[type="number"],
-      input[type="search"],
-      input[type="tel"],
-      input[type="time"],
-      input[type="url"],
-      textarea,
-      select {
-        background: rgba(255, 255, 255, 0.1);
-        border: none;
-        font-size: 16px;
-        height: auto;
-        margin: 0;
-        outline: 0;
-        padding: 15px;
-        width: 100%;
-        background-color: #e8eeef;
-        color: #8a97a0;
-        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-        margin-bottom: 30px;
-      }
-
-      input[type="radio"],
-      input[type="checkbox"] {
-        margin: 0 4px 8px 0;
-      }
-
-      select {
-        padding: 6px;
-        height: 32px;
-        border-radius: 2px;
-      }
-
-      button {
-        padding: 19px 39px 18px 39px;
-        color: #fff;
-        background-color: #4bc970;
-        font-size: 18px;
-        text-align: center;
-        font-style: normal;
-        border-radius: 5px;
-        width: 100%;
-        border: 1px solid #3ac162;
-        border-width: 1px 1px 3px;
-        box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
-        margin-bottom: 10px;
-      }
-
-      fieldset {
-        margin-bottom: 30px;
-        border: none;
-      }
-
-      legend {
-        font-size: 1.4em;
-        margin-bottom: 10px;
-      }
-
-      label {
-        display: block;
-        margin-bottom: 8px;
-      }
-
-      label.light {
-        font-weight: 300;
-        display: inline;
-      }
-
-      .number {
-        background-color: #5fcf80;
-        color: #fff;
-        height: 30px;
-        width: 30px;
-        display: inline-block;
-        font-size: 0.8em;
-        margin-right: 4px;
-        line-height: 30px;
-        text-align: center;
-        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
-        border-radius: 100%;
-      }
-
-      @media screen and (min-width: 480px) {
-        form {
-          max-width: 480px;
-        }
-      }
-    </style>
   </head>
-  <body>
-    <div class="row">
-      <div class="col-md-12">
-        <form action="index.html" method="post">
-          <h1>Add Blog Post</h1>
-
-          <fieldset>
-            <legend><span class="number">1</span> Content</legend>
-
-            <label for="text">Text:</label>
-            <textarea id="text" name="text" rows="10"></textarea>
-          </fieldset>
-
-          <fieldset>
-            <legend><span class="number">2</span> Tags</legend>
-
-            <ul id="tags"></ul>
-
-            <label for="new_tag">New Tag:</label>
-            <input type="text" id="new_tag" name="new_tag" />
-          </fieldset>
-
-          <button type="submit">Add</button>
-        </form>
+  <body class="p-4">
+    <div class="flex items-center gap-4 mb-4">
+      <p class="w-1/4 font-bold text-2xl content-text">
+        Bij de vernieuwde ING hypotheek heeft het energielabel van je woning nu
+        ook invloed op je hypotheekrente . We vinden het belangrijk dat je
+        energiezuinig, toekomstbestendig en comfortabel kunt wonen en stimuleren
+        dit met een lagere rente. Zo kun je met een beter energielabel mogelijk
+        je hypotheekrente verlagen; in een keer of stap voor stap.
+      </p>
+      <img
+        src="./assets/Mohamad Shiralizadeh.jpeg"
+        class="w-1/4 rounded-xl content-img-mohamad"
+      />
+      <img
+        src="./assets/Rowan Atkinson.jpeg"
+        class="w-1/4 rounded-xl content-img-rowan"
+      />
+      <audio
+        class="w-1/4 content-audio"
+        controls
+        src="/assets/sample.m4a"
+      ></audio>
+    </div>
+    <div class="flex items-strech gap-4 mb-4">
+      <div class="text-2xl bg-gray-100 p-4 rounded-lg w-full">
+        Current API
+        <pre class="font-bold current-api"></pre>
+        <pre class="font-bold model-question"></pre>
       </div>
+      <button class="btn-run bg-white hover:bg-gray-100 text-gray-800 font-semibold px-3 py-2 text-xs border border-gray-400 rounded shadow">
+        Run
+      </button>
+    </div>
+    <div class="text-2xl bg-green-200 p-4 rounded-lg mb-4">
+      <p class="mb-4">
+        Model Answer:
+      </p>
+      <pre class="font-bold whitespace-pre-wrap model-answer mb-4">-</pre>
+      <pre class="text-xl whitespace-pre-wrap answer-duration"></pre>
     </div>
 
+    <div class="flex gap-1">
+        <a
+          class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+          href="/?language-detector"
+          >Language Detector</a
+        >
+        <a
+          class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+          href="/?translator"
+          >Translator</a
+        >
+      
+        <a
+          class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+          href="/?summarizer"
+          >Summarizer</a
+        >
+      
+        <a
+          class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+          href="/?language-multimodel-image"
+          >Language Multimodel (Image)</a
+        >
+      
+        <a
+          class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+          href="/?language-multimodel-audio"
+          >Language Multimodel (Audio)</a
+        >
+      
+        <a
+          class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+          href="/?language-model"
+          >Language Model</a
+        >
+      
+        <a
+          class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+          href="/?proofreader"
+          >Proofreader</a
+        >
+      </li>
+    </ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+
     <script src="./index.js"></script>
   </body>
 </html>

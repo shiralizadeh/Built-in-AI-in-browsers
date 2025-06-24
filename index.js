@@ -1,48 +1,30 @@
-const textElement = document.getElementById("text");
-const tagsElement = document.getElementById("tags");
+const currentApi = document.querySelector(".current-api");
 
-const prompt = _.debounce(async function prompt(e) {
-  let response = null,
-    promptText = null;
+const modelQuestion = document.querySelector(".model-question");
+const modelAnswer = document.querySelector(".model-answer");
+const answerDuration = document.querySelector(".answer-duration");
 
-  try {
-    promptText = `
-        You're an author helping people to find right tags for their blog posts.
-        Consider the following text and suggest tags for it in json format.
+const script = document.createElement("script");
+const api = document.location.search.replace("?", "");
 
-        Example: { "tags": ['tag1', 'tag2', ...] }
+script.src = `/demo/${api}.js`;
 
-        <text>
-            ${e.target.value}
-        </text>
-    `;
+document.body.appendChild(script);
 
-    // Create a session
-    const session = await ai.languageModel.create();
+currentApi.textContent = api;
 
-    // Prompt the model
-    response = await session.prompt(promptText);
+document.querySelector(".btn-run").addEventListener("click", async () => {
+  run();
+});
 
-    // Log Response
-    console.log({ response });
+let time = undefined;
+function startPerf() {
+  time = Date.now();
 
-    // Parse Response
-    const { tags } = JSON.parse(response);
+  answerDuration.textContent = "";
+  modelAnswer.innerText = "Loading...";
+}
 
-    tagsElement.innerHTML = "";
-
-    for (const tag of tags) {
-      const li = document.createElement("li");
-
-      li.textContent = tag;
-
-      tagsElement.appendChild(li);
-    }
-
-    console.log({ tags });
-  } catch (error) {
-    // console.log({ error, response, promptText });
-  }
-}, 300);
-
-textElement.addEventListener("input", prompt);
+function endPerf() {
+  answerDuration.textContent = `Duration: ${Date.now() - time}ms`;
+}

@@ -1,6 +1,0 @@
-You're an author helping people to find right tags for their blog posts.
-Consider the following text and suggest tags for it in json format.
-
-<text>
-    ...
-</text>
