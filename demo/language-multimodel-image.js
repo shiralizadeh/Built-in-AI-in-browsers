@@ -1,4 +1,5 @@
-const promptText = "Is the first image look like the second one?";
+const promptText = "What do you see?";
+// const promptText = "Is the first image look like the second one?";
 
 modelQuestion.innerText = promptText;
 
@@ -18,7 +19,7 @@ async function run() {
       content: [
         { type: "text", value: promptText },
         { type: "image", value: mohamadImg },
-        { type: "image", value: rowanImg },
+        // { type: "image", value: rowanImg },
       ],
     },
   ];
